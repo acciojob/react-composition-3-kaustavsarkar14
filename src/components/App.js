@@ -1,34 +1,18 @@
 import React, { useState } from "react";
 import "./../styles/App.css";
-
-const Tooltip = ({ text, children }) => {
-  const [show, setShow] = useState(false);
-  return (
-    <div className="tooltip">
-      <div
-        onMouseEnter={() => setShow(true)}
-        onMouseLeave={() => setShow(false)}
-      >
-        {children}
-      </div>
-      {show && (
-        <div style={{ backgroundColor: "red" }} className="tooltiptext">
-          {text}
-        </div>
-      )}
-    </div>
-  );
-};
+import Tooltip from "./Tooltip";
 
 const App = () => {
   return (
     <div>
-      <Tooltip text="This is a tooltip">
-        <h1>Hover over me</h1>
-      </Tooltip>
-      <Tooltip text="This is another tooltip">
-        <p>Hover over me to see another tooltip</p>
-      </Tooltip>
+      <h2>
+        <Tooltip text="This is a tooltip">Hover over me</Tooltip>
+      </h2>
+      <p>
+        <Tooltip text="This is another tooltip">
+          Hover over me to see another tooltip
+        </Tooltip>
+      </p>
     </div>
   );
 };
