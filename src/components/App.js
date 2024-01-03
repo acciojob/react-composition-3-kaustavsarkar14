@@ -4,7 +4,7 @@ import "./../styles/App.css";
 const Tooltip = ({ text, children }) => {
   const [show, setShow] = useState(false);
   return (
-    <div className="tooltip">
+    <h2 className="tooltip">
       <div
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
@@ -12,11 +12,11 @@ const Tooltip = ({ text, children }) => {
         {children}
       </div>
       {show && (
-        <span style={{ backgroundColor: "red" }} className="tooltiptext">
+        <div style={{ backgroundColor: "red" }} className="tooltiptext">
           {text}
-        </span>
+        </div>
       )}
-    </div>
+    </h2>
   );
 };
 
