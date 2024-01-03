@@ -3,21 +3,26 @@ import "./../styles/App.css";
 
 const Tooltip = ({ text, children }) => {
   const [show, setShow] = useState(false);
-  return (
-    <div className="tooltip">
-      <div
+
+  // Wrapping the children with additional props and classes
+  const wrappedChildren = React.Children.map(children, child => {
+    return (
+      <div 
+        className={`tooltip ${child.props.className || ''}`}
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
       >
-        {children}
+        {child}
+        {show && (
+          <div style={{ backgroundColor: "red" }} className="tooltiptext">
+            {text}
+          </div>
+        )}
       </div>
-      {show && (
-        <div style={{ backgroundColor: "red" }} className="tooltiptext">
-          {text}
-        </div>
-      )}
-    </div>
-  );
+    );
+  });
+
+  return <>{wrappedChildren}</>;
 };
 
 const App = () => {
