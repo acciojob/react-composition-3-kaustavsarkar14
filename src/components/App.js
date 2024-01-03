@@ -4,7 +4,7 @@ import "./../styles/App.css";
 const Tooltip = ({ text, children }) => {
   const [show, setShow] = useState(false);
   return (
-    <h2 className="tooltip">
+    <div className="tooltip">
       <div
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
@@ -16,7 +16,7 @@ const Tooltip = ({ text, children }) => {
           {text}
         </div>
       )}
-    </h2>
+    </div>
   );
 };
 
